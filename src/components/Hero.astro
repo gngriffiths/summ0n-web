@@ -6,18 +6,60 @@ interface Props {
 const { tagline = "Live music XR" } = Astro.props;
 ---
 
-<section class="hero section">
-  <div class="hero__image-wrapper" aria-hidden="true">
-    <img src="/images/summ0n-performance.jpg" alt="" class="hero__image" />
-    <div class="hero__overlay"></div>
+<section
+  class="hero section"
+  style="position:relative;padding-top:var(--space-xl);padding-bottom:var(--space-lg);overflow:hidden;min-height:35vh;"
+>
+  <div
+    class="hero__image-wrapper"
+    aria-hidden="true"
+    style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"
+  >
+    <img
+      src="/images/summ0n-performance.jpg"
+      alt=""
+      class="hero__image"
+      style="width:100%;height:100%;object-fit:cover;object-position:center;"
+    />
+    <div
+      class="hero__overlay"
+      style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.7) 100%);"
+    >
+    </div>
   </div>
   <div class="container">
-    <div class="hero__content">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <img src="/summ0n-text-logo-white.svg" alt="summ0n" class="hero__logo" />
-      <p class="hero__tagline">{tagline}</p>
-      <div class="hero__divider" aria-hidden="true"></div>
-      <p class="hero__sub">
+    <div
+      class="hero__content"
+      style="position:relative;z-index:1;text-align:center;padding:var(--space-lg) var(--space-md);"
+    >
+      <div
+        class="hero__glow"
+        aria-hidden="true"
+        style="position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(124,92,252,0.2) 0%,transparent 70%);pointer-events:none;"
+      >
+      </div>
+      <img
+        src="/summ0n-text-logo-white.svg"
+        alt="summ0n"
+        class="hero__logo"
+        style="display:block;margin:0 auto var(--space-sm);height:clamp(2.5rem,8vw,4.5rem);width:auto;"
+      />
+      <p
+        class="hero__tagline"
+        style="position:relative;font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:var(--space-md);"
+      >
+        {tagline}
+      </p>
+      <div
+        class="hero__divider"
+        aria-hidden="true"
+        style="width:40px;height:3px;background:var(--color-accent);border-radius:var(--radius-full);margin:0 auto var(--space-md);"
+      >
+      </div>
+      <p
+        class="hero__sub"
+        style="position:relative;font-size:clamp(0.95rem,2vw,1.1rem);color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto;line-height:1.7;"
+      >
         We're revolutionizing live music performances.
         <br />
         Music created with gestures and body movements.
@@ -25,94 +67,3 @@ const { tagline = "Live music XR" } = Astro.props;
     </div>
   </div>
 </section>
-
-<style>
-  .hero {
-    position: relative;
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-lg);
-    overflow: hidden;
-    min-height: 35vh;
-  }
-
-  .hero__image-wrapper {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
-
-  .hero__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
-  }
-
-  .hero__content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: var(--space-lg) var(--space-md);
-  }
-
-  .hero__glow {
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(
-      circle,
-      rgba(124, 92, 252, 0.2) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-
-  .hero__logo {
-    display: block;
-    margin: 0 auto var(--space-sm);
-    height: clamp(2.5rem, 8vw, 4.5rem);
-    width: auto;
-  }
-
-  .hero__tagline {
-    position: relative;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: var(--space-md);
-  }
-
-  .hero__divider {
-    width: 40px;
-    height: 3px;
-    background: var(--color-accent);
-    border-radius: var(--radius-full);
-    margin: 0 auto var(--space-md);
-  }
-
-  .hero__sub {
-    position: relative;
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    color: rgba(255, 255, 255, 0.65);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-</style>
