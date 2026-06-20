@@ -1,0 +1,141 @@
+---
+const links = [
+  {
+    label: "Email",
+    href: "mailto:hello@summ0n.dev",
+    icon: "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884zM18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/gngriffiths",
+    icon: "M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.501.338c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/gngriffiths",
+    icon: "M0 8.219V23.78c0 1.47 1.156 2.626 2.625 2.626h15.563c.719 0 1.406-.344 1.844-.781.469-.469.781-1.063.781-1.844V8.22c0-1.47-1.156-2.625-2.625-2.625H2.625C1.844 5.594 1.25 5.907.78 6.375.344 6.813 0 7.5 0 8.219zm2.813 2.062c0-1 .813-1.875 1.813-1.875 1.031 0 1.875.875 1.875 1.875 0 1.031-.844 1.844-1.875 1.844-1 0-1.813-.813-1.813-1.844zm5.031 12.844V13.594c0-.219.219-.406.375-.406h2.657c.374 0 .374.438.374.719.75-.75 1.72-.938 2.72-.938 2.437 0 4 1.156 4 3.719v6.438c0 .219-.188.406-.375.406h-2.75c-.22 0-.375-.219-.375-.406V17.313c0-.969-.282-1.5-1.376-1.5-1.375 0-1.719.906-1.719 2.125v5.188c0 .219-.219.406-.438.406h-2.719c-.156 0-.375-.219-.375-.406V13.594h.002zM2.875 23.125V13.594c0-.219.219-.406.375-.406h2.719c.25 0 .406.156.406.406v9.531c0 .219-.188.406-.406.406H3.25c-.188 0-.375-.219-.375-.406z",
+  },
+];
+---
+
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="contact__inner curved-card">
+      <h2 class="contact__heading">Get in touch</h2>
+      <p class="contact__description">
+        Reach out and message us. We'd love to hear from you!
+      </p>
+      <div class="contact__links">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="contact__link"
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={
+                link.href.startsWith("http") ? "noopener noreferrer" : undefined
+              }
+            >
+              <svg
+                class="contact__link-icon"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d={link.icon} />
+              </svg>
+              <span class="contact__link-label">{link.label}</span>
+              <svg
+                class="contact__link-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 17L17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-lg);
+  }
+
+  .contact__inner {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .contact__heading {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .contact__description {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .contact__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .contact__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+
+  .contact__link:hover {
+    border-color: var(--color-accent);
+    background: var(--color-surface-hover);
+    transform: translateY(-1px);
+  }
+
+  .contact__link-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  .contact__link-label {
+    font-size: 1rem;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .contact__link-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-muted);
+    transition: transform 0.2s ease;
+  }
+
+  .contact__link:hover .contact__link-arrow {
+    transform: translate(2px, -2px);
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+interface Props {
+  title?: string;
+  tagline?: string;
+}
+
+const { title = "Music XR", tagline = "Live music performances" } = Astro.props;
+---
+
+<section class="info section">
+  <div class="container">
+    <div class="info__content curved-card curved-card--accent">
+      <div class="info__glow" aria-hidden="true"></div>
+      <h1 class="info__title">{title}</h1>
+      <p class="info__tagline">{tagline}</p>
+      <div class="info__divider" aria-hidden="true"></div>
+      <p class="info__sub">
+        We're revolutionizing live music performances.
+        <br />
+        Music created with gestures and body movements.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .info {
+    padding: var(--space-lg) 0;
+  }
+
+  .info__content {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .info__glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+      circle,
+      var(--color-accent-glow) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .info__title {
+    position: relative;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(
+      135deg,
+      var(--color-text) 0%,
+      var(--color-accent) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+  }
+
+  .info__tagline {
+    position: relative;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--color-text-muted);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+
+  .info__divider {
+    width: 40px;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: var(--radius-full);
+    margin: 0 auto var(--space-md);
+  }
+
+  .info__sub {
+    position: relative;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .info__content {
+      padding: var(--space-md) var(--space-sm);
+    }
+  }
+</style>

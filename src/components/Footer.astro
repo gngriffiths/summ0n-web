@@ -1,0 +1,63 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <img src="/summ0n-text-logo.svg" alt="summ0n" class="footer__logo" />
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          &copy; {year} summ0n. All rights reserved.
+        </p>
+        <p class="footer__credit">Live music XR</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer__top {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer__logo {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .footer__copyright,
+  .footer__credit {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  @media (min-width: 600px) {
+    .footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>
